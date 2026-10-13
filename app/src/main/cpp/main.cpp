@@ -135,10 +135,10 @@ void android_main(android_app* app) {
 
     while (!app->destroyRequested) {
         // Parado -> bloquea hasta el siguiente evento; activo -> no bloquea y renderiza (vsync por FIFO)
-        const int timeout = state.shouldRender() ? 0 : -1;
+        
         int events = 0;
         android_poll_source* source = nullptr;
-        while (ALooper_pollOnce(timeout, nullptr, &events, reinterpret_cast<void**>(&source)) >= 0) {
+        while (ALooper_pollOnce(state.shouldRender() ? 0: -1, nullptr, &events, reinterpret_cast<void**>(&source)) >= 0) {
             if (source != nullptr) source->process(app, source);
             if (app->destroyRequested) break;
         }
