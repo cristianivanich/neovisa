@@ -1,5 +1,6 @@
 // Punto de entrada NativeActivity: ciclo de vida, permisos (vía JNI) y bucle de render en C++.
 #include <android/native_window.h>
+#include <android/window.h>
 #include <android_native_app_glue.h>
 #include <jni.h>
 
