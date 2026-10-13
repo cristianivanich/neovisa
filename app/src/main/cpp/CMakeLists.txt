@@ -18,7 +18,7 @@ add_library(matrixrain SHARED
         audio_processor.cpp)
 
 target_compile_definitions(matrixrain PRIVATE VK_USE_PLATFORM_ANDROID_KHR=1)
-target_compile_options(matrixrain PRIVATE -Wall -Wextra -Wno-unused-parameter)
+target_compile_options(matrixrain PRIVATE -Wall -Wextra -Wno-unused-parameter -Who-missing-field-initializers)
 
 # Necesario para que ANativeActivity_onCreate (en app_glue) no sea descartado
 target_link_options(matrixrain PRIVATE
